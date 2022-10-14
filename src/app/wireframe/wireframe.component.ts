@@ -29,6 +29,7 @@ export class WireframeComponent implements OnInit {
   @Output() informacao = "Alisson silva";
 
   constructor(private moedaService: MoedaService) { }
+  //"AUD","07-06-2022","07-25-2022"
 
   obterTodosMoedas(){
     this.moedaService.obterTodos()

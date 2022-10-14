@@ -23,6 +23,19 @@ export class TableComponent implements OnInit {
       cotacaoVenda: 5.5112,
       dataHoraCotacao: "2022-07-06 10:06:15.609"
     },
+    {
+      cotacaoCompra: 5.5084,
+      cotacaoVenda: 5.5112,
+      dataHoraCotacao: "2022-07-06 10:06:15.609"
+    },{
+      cotacaoCompra: 5.5084,
+      cotacaoVenda: 5.5112,
+      dataHoraCotacao: "2022-07-06 10:06:15.609"
+    },{
+      cotacaoCompra: 5.5084,
+      cotacaoVenda: 5.5112,
+      dataHoraCotacao: "2022-07-06 10:06:15.609"
+    }
   ]
   @Input() informacao: string | undefined;
   

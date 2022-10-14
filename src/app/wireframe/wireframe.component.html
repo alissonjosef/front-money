@@ -1,9 +1,9 @@
-<form class="content">
+<form class="content" #valueForm = "ngForm">
   <div>
     <label for="exampleFormControlInput1" class="form-label">Moeda</label>
     <select class="form-select" aria-label="Default select example">
       <option selected>Open this select menu</option>
-      <option value={{list.ID}} *ngFor="let list of listMoeda">{{list.TEXT}}</option>
+      <option name = 'selectMoeda' ngModel value={{list.ID}} *ngFor="let list of listMoeda">{{list.TEXT}}</option>
       
     </select>
   </div>
@@ -11,14 +11,14 @@
   <div>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Data Inicial</label>
-        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input name = 'dateStart' ngModel type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
       </div>
   </div>
 
   <div>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Data Final</label>
-        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <input name = 'dateFinal' ngModel type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
       </div>
   </div>
 <div class="content-btn">
@@ -29,3 +29,4 @@
     </button>
 </div>
 </form>
+{{ valueForm.value | json }}
