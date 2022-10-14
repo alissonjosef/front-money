@@ -1,0 +1,31 @@
+<form class="content">
+  <div>
+    <label for="exampleFormControlInput1" class="form-label">Moeda</label>
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Open this select menu</option>
+      <option value={{list.ID}} *ngFor="let list of listMoeda">{{list.TEXT}}</option>
+      
+    </select>
+  </div>
+
+  <div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Data Inicial</label>
+        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+  </div>
+
+  <div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Data Final</label>
+        <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+  </div>
+<div class="content-btn">
+    <button type="submit" class="btn btn-success">Consultar dados</button>
+    <button (click)="obterTodosMoedas()" type="button" class="btn btn-primary">
+        <img src="icons/bi-check.svg" alt="" />
+        Atualizar dados
+    </button>
+</div>
+</form>

@@ -1,0 +1,18 @@
+.content{
+    display: flex;
+    border: #C8C5C9 solid 1px;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    gap: 1rem;
+    align-items: end;
+    justify-content: center;
+}
+
+.mb-3 {
+    margin-bottom: 0!important;
+}
+
+.content-btn{
+    display: flex;
+    gap: 1rem;
+}

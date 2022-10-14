@@ -1,0 +1,23 @@
+<div class="content-table">
+    <div class="content notes_scroll">
+        <table class="table" >
+            <thead>
+              <tr>
+                <th scope="col">Cotação de compras</th>
+                <th scope="col">Cotação de vendas</th>
+                <th scope="col">Data e hora da cotação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let moeda of cotacao">
+                <td>{{moeda.cotacaoCompra}}</td>
+                <td>{{moeda.cotacaoVenda}}</td>
+                <td>{{moeda.dataHoraCotacao}}</td>
+              </tr>
+            
+            </tbody>
+          </table>
+      </div>
+</div>
+<h2>{{informacao}}</h2>
+  

@@ -1,0 +1,27 @@
+.content-table{
+    width: 935px;
+}
+
+.content{
+    display: flex;
+    border: #C8C5C9 solid 1px;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    gap: 1rem;
+    align-items: end;
+    justify-content: center;
+    margin-top: 1rem;
+    
+}
+
+.notes_scroll {
+    height: 100%;
+    width:100%;
+    padding: 25px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .notes_scroll::-webkit-scrollbar {
+    display: none;
+  }
