@@ -1,49 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ICotacao } from '../models/cotacao.model';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
+  @Input() cotacoes!: ICotacao[] | null;
 
-  cotacao = [
-    {
-      cotacaoCompra: 5.5084,
-      cotacaoVenda: 5.5112,
-      dataHoraCotacao: "2022-07-06 10:06:15.609"
-    },
-    {
-      cotacaoCompra: 5.5084,
-      cotacaoVenda: 5.5112,
-      dataHoraCotacao: "2022-07-06 10:06:15.609"
-    },
-    {
-      cotacaoCompra: 5.5084,
-      cotacaoVenda: 5.5112,
-      dataHoraCotacao: "2022-07-06 10:06:15.609"
-    },
-    {
-      cotacaoCompra: 5.5084,
-      cotacaoVenda: 5.5112,
-      dataHoraCotacao: "2022-07-06 10:06:15.609"
-    },{
-      cotacaoCompra: 5.5084,
-      cotacaoVenda: 5.5112,
-      dataHoraCotacao: "2022-07-06 10:06:15.609"
-    },{
-      cotacaoCompra: 5.5084,
-      cotacaoVenda: 5.5112,
-      dataHoraCotacao: "2022-07-06 10:06:15.609"
-    }
-  ]
-  @Input() informacao: string | undefined;
-  
-  constructor() {
-    
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

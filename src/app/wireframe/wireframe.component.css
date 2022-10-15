@@ -16,13 +16,11 @@
     display: flex;
     gap: 1rem;
 }
-@media (max-width: 575.98px) { 
-    .content{
-        border: #C8C5C9 solid 1px;
-        padding: 1rem;
-        border-radius: 0.2rem;
-        gap: 1rem;
-        align-items: end;
-        justify-content: center;
-    }
- }
+
+p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    color: red;
+}

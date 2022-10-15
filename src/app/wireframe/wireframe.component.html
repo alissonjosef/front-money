@@ -1,32 +1,72 @@
-<form class="content" #valueForm = "ngForm">
+<form class="content" #form="ngForm" >
   <div>
     <label for="exampleFormControlInput1" class="form-label">Moeda</label>
-    <select class="form-select" aria-label="Default select example">
-      <option selected>Open this select menu</option>
-      <option name = 'selectMoeda' ngModel value={{list.ID}} *ngFor="let list of listMoeda">{{list.TEXT}}</option>
-      
+    <select
+      class="form-select"
+      name="moedaSelecionada"
+      [(ngModel)]="moedaSelecionada"
+      aria-label="Default select example"
+      required
+    >
+      <option selected value="">Selecione a moeda</option>
+      <option
+        name="selectMoeda"
+        *ngFor="let list of listMoeda"
+        [value]="list.ID"
+      >
+        {{ list.TEXT }}
+      </option>
     </select>
   </div>
 
-  <div>
+  <div> 
     <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Data Inicial</label>
-        <input name = 'dateStart' ngModel type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
+      <label for="exampleFormControlInput1" class="form-label"
+        >Data Inicial</label
+      >
+      <input
+        name="dataInicial"
+        [(ngModel)]="dataInicial"
+        type="date"
+        class="form-control"
+        required
+      />
+    </div>
   </div>
 
   <div>
     <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Data Final</label>
-        <input name = 'dateFinal' ngModel type="date" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
+      <label for="exampleFormControlInput1" class="form-label"
+        >Data Final</label
+      >
+      <input
+        name="dataFinal"
+        [(ngModel)]="dataFinal"
+        type="date"
+        class="form-control"
+        required
+      />
+    </div>
   </div>
-<div class="content-btn">
-    <button type="submit" class="btn btn-success">Consultar dados</button>
-    <button (click)="obterTodosMoedas()" type="button" class="btn btn-primary">
-        <img src="icons/bi-check.svg" alt="" />
-        Atualizar dados
+  <div class="content-btn">
+    <button (click)="obterTodosMoedas()"
+    type="button"
+    class="btn btn-primary"
+    [disabled]="form.invalid" class="btn btn-success">Consultar dados</button>
+    <button
+      (click)="obterTodosMoedas()"
+      type="button"
+      class="btn btn-primary"
+      [disabled]="form.invalid"
+    >
+      <img src="icons/bi-check.svg" alt="" />
+      Atualizar dados
     </button>
-</div>
+  </div>
 </form>
-{{ valueForm.value | json }}
+<ng-container *ngIf="cotacoes$ | async as cotacoes">
+  <app-table *ngIf="cotacoes.length > 0" [cotacoes]="cotacoes"></app-table>
+</ng-container>
+<ng-container class="dateInvalide" *ngIf="checarDataInicialEFinal()">
+  <p>Data final Invalida</p>
+</ng-container>

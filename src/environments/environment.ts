@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: {
+    API_URL: 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata'
+  }
 };
 
 /*

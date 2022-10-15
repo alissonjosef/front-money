@@ -1,47 +1,71 @@
+import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
+import { Observable } from 'rxjs';
+import { ICotacao } from '../models/cotacao.model';
+import { IOptionsMoedas } from '../models/options.model';
 import { MoedaService } from './../moeda.service';
-import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-wireframe',
   templateUrl: './wireframe.component.html',
-  styleUrls: ['./wireframe.component.css']
+  styleUrls: ['./wireframe.component.css'],
 })
 export class WireframeComponent implements OnInit {
+  listMoeda: IOptionsMoedas[] = [
+    {
+      ID: 'AUD',
+      TEXT: 'Dolar autraliano',
+    },
+    {
+      ID: 'CAD',
+      TEXT: 'Dolar canadense',
+    },
+    {
+      ID: 'EUR',
+      TEXT: 'Euro',
+    },
+    {
+      ID: 'USD',
+      TEXT: 'Dolar dos Estados Unidos',
+    },
+  ];
 
-  listMoeda:any[] = [
-    {
-      "ID":"AUD",
-      "TEXT": "Dolar autraliano"
-    },
-    {
-      "ID":"CAD",
-      "TEXT": "Dolar canadense"
-    },
-    {
-      "ID":"EUR",
-      "TEXT": "Euro"
-    },
-    {
-      "ID":"USD",
-      "TEXT": "Dolar dos Estados Unidos"
-    },
-  ]
-  @Output() informacao = "Alisson silva";
+  moedaSelecionada: string = '';
+  cotacoes$!: Observable<ICotacao[]>;
+  // cotacoes: ICotacao[] = [];
 
-  constructor(private moedaService: MoedaService) { }
+  // Date as moment formatted string
+  dataInicial: string = moment(new Date()).format('YYYY-MM-DD');
+  dataFinal: string = moment(new Date()).format('YYYY-MM-DD');
+
+  constructor(private moedaService: MoedaService) {}
   //"AUD","07-06-2022","07-25-2022"
 
-  obterTodosMoedas(){
-    this.moedaService.obterTodos()
-    .then(moedas => {
-      console.log(moedas?.value)
-    })
-    .catch(erro => console.error(erro)
+  obterTodosMoedas() {
+    // usando promise
+    /* firstValueFrom(
+      this.moedaService.obterTodos(
+        this.moedaSelecionada,
+        moment(this.dataInicial).format('MM-DD-YYYY'),
+        moment(this.dataFinal).format('MM-DD-YYYY')
+      )
     )
+      .then((cotacoes: ICotacao[]) => {
+        this.cotacoes = cotacoes;
+      })
+      .catch((erro) => console.error(erro)); */
+
+    this.cotacoes$ = this.moedaService.obterTodos(
+      this.moedaSelecionada,
+      moment(this.dataInicial).format('MM-DD-YYYY'),
+      moment(this.dataFinal).format('MM-DD-YYYY')
+    );
   }
 
-  ngOnInit(): void {
-    this.moedaService
-  }
+  ngOnInit(): void {}
 
+  checarDataInicialEFinal() {
+    return moment(this.dataInicial).isAfter(this.dataFinal)
+  }
+  
 }

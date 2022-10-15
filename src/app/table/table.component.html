@@ -1,5 +1,5 @@
-<div class="content-table">
-    <div class="content notes_scroll">
+<div class="content-table ">
+    <div class="content ">
         <table class="table" >
             <thead>
               <tr>
@@ -9,15 +9,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let moeda of cotacao">
+              <tr *ngFor="let moeda of cotacoes">
                 <td>{{moeda.cotacaoCompra}}</td>
                 <td>{{moeda.cotacaoVenda}}</td>
-                <td>{{moeda.dataHoraCotacao}}</td>
+                <td>{{moeda.dataHoraCotacao | date: 'dd/MM/YYYY HH:mm:ss'}}</td>
               </tr>
-            
+
             </tbody>
           </table>
       </div>
 </div>
-<h2>{{informacao}}</h2>
-  
