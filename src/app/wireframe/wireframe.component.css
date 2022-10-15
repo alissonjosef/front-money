@@ -24,3 +24,55 @@ p {
     margin-top: 1rem;
     color: red;
 }
+
+@media screen and (max-width: 576px) { 
+
+    body{
+        overflow-x: hidden;
+    }
+    .content{
+        display: block;
+        border: #C8C5C9 solid 1px;
+        padding: 1rem;
+        border-radius: 0.2rem;
+        gap: 1rem;
+        align-items: end;
+        justify-content: center;
+        overflow-x: hidden
+    }
+
+    label {
+        margin-top: 1rem;
+    }
+
+    button {
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) { 
+
+    body{
+        overflow-x: hidden;
+    }
+
+    .content{
+        display: block;
+        border: #C8C5C9 solid 1px;
+        padding: 1rem;
+        border-radius: 0.2rem;
+        gap: 1rem;
+        align-items: end;
+        justify-content: center;
+        
+    }
+
+    label {
+        margin-top: 1rem;
+    }
+
+    button {
+        margin-top: 1rem;
+        display: block;
+    }
+}
