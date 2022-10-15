@@ -35,8 +35,8 @@ export class WireframeComponent implements OnInit {
   // cotacoes: ICotacao[] = [];
 
   // Date as moment formatted string
-  dataInicial: string = moment(new Date()).format('YYYY-MM-DD');
-  dataFinal: string = moment(new Date()).format('YYYY-MM-DD');
+  dataInicial: string = moment(new Date).format('YYYY-MM-DD');
+  dataFinal: string = moment(new Date).format('YYYY-MM-DD');
 
   constructor(private moedaService: MoedaService) {}
   //"AUD","07-06-2022","07-25-2022"
